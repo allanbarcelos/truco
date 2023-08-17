@@ -1,0 +1,6 @@
+{
+    "liveServer.settings.port": 5502,
+    "liveServer.settings.CustomBrowser": "firefox",
+    // "liveServer.settings.file": "./../dist/index.html",
+    "liveServer.settings.root": "/dist"
+}

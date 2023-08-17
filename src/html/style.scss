@@ -1,0 +1,115 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400);
+
+body {
+  background-color: gray;
+}
+
+#baralho {
+  position: relative;
+  left: 200px;
+  top: 30px;
+  width: 1200px;
+}
+
+.carta {
+  background-color: white;
+  height: 390px;
+  width: 250px;
+  border-radius: 15px;
+  padding: 15px;
+  box-sizing: content-box;
+  position: relative;
+  float: left;
+  margin: 10px;
+  box-shadow: -1px 1px 4px rgba(0,0,0,0.1);
+
+  .naip-area {
+    height: 50%;
+    width: 100%;
+
+    &:nth-child(2) {
+      transform:rotate(180deg);
+    }
+  }
+
+  .naip-number, .naip-sign {
+    display:block;
+    width: 30px;
+    text-align: center;
+  }
+
+  .naip-number {
+    font-size: 45px; 
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+  }
+
+  .naip-sign {
+    font-size: 40px;
+  }
+
+  .carta-miolo {
+    position: absolute;
+    top: 0;
+    width: 250px;
+  }
+}
+
+// Miolo styles
+@for $i from 1 through 10 {
+  .miolo-#{$i} {
+    text-align: center;
+    font-size: 70px;
+    height: 100%;
+
+    .naip-miolo {
+      display: block;
+      position: absolute;
+      width: 50%;
+    }
+
+    @for $j from 1 through $i {
+      .naip-miolo:nth-child(#{$j}) {
+        @if $i == 1 {
+          line-height: 390px;
+          font-size: 120px;
+        } @else {
+          @if $j < 5 {
+            top: ($j - 1) * 110px;
+            @if $j % 2 == 0 {
+              right: 0;
+            } @else {
+              left: 0;
+            }
+          } @else {
+            bottom: ($j - 5) * 110px;
+            @if $j % 2 == 0 {
+              right: 0;
+            } @else {
+              left: 0;
+            }
+          }
+        }
+      }
+    }
+
+    @if $i == 9 {
+      .naip-miolo:nth-child(9) {
+        top: 160px;
+        left: 65px;
+      }
+    }
+
+    @if $i == 10 {
+      .naip-miolo:nth-child(9) {
+        top: 60px;
+        left: 65px;
+      }
+
+      .naip-miolo:nth-child(10) {
+        top: 280px;
+        left: 65px;
+      }
+    }
+  }
+}
